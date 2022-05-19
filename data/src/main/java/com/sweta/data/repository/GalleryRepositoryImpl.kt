@@ -53,4 +53,28 @@ class GalleryRepositoryImpl(
 
 
     }
+
+    override suspend fun getGalleryItemDetails(id: Int): ResultWrapper<GalleryImage> {
+        return try {
+            val response = galleryApi.getGalleryItemDetails(id)
+
+            if (response.isSuccessful) {
+                val body = response.body()
+                body?.run {
+                    ResultWrapper.Success(galleryItemMapper.mapToDomain(this))
+                } ?: run {
+                    ResultWrapper.Success(null)
+                }
+            } else {
+                response.getErrorResultWrapper()
+            }
+
+        } catch (ex: NetworkUnavailableException) {
+            ResultWrapper.NetworkError
+        } catch (ex: Exception) {
+            ResultWrapper.GenericError(Exception("Api Error"))
+        }
+
+    }
+
 }

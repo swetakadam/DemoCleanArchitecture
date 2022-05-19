@@ -11,6 +11,8 @@ interface GalleryRepository {
     //suspend fun getBlurGalleryImage(blurLevel:Int = 1): ResultWrapper<GalleryImage>
     suspend fun getRandomGrayScaleImage(): ResultWrapper<GalleryImage>
 
+    suspend fun getGalleryItemDetails(id:Int): ResultWrapper<GalleryImage>
+
 
     //likeGalleryImage
     //unlikeGalleryImage

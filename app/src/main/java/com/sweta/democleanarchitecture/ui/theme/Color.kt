@@ -39,3 +39,13 @@ val md_theme_dark_onSurface = Color(0xFFeae0e3)
 
 val seed = Color(0xFFa4518e)
 val error = Color(0xFFba1b1b)
+
+val ShimmerColorShades = listOf(
+
+    Color.LightGray.copy(0.9f),
+
+    Color.LightGray.copy(0.2f),
+
+    Color.LightGray.copy(0.9f)
+
+)

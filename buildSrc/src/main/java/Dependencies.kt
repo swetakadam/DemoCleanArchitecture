@@ -22,6 +22,8 @@ object Deps {
     const val composeUiTooling =  "androidx.compose.ui:ui-tooling-preview:${Versions.composeVersion}"
     const val lifecycle =  "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val activityCompose =  "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+
 
 
 
@@ -59,6 +61,7 @@ object Deps {
     const val koin_android = "io.insert-koin:koin-android:${Versions.koin_version}"
     const val koin_androidx_scope = "io.insert-koin:koin-androidx-scope:${Versions.koin_version}"
     const val koin_viewmodel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koin_version}"
+    const val koin_compose = "io.insert-koin:koin-androidx-compose:${Versions.koin_version}"
 
     //Coil (Image Uploading)
     const val accompanist = "com.google.accompanist:accompanist-coil:${Versions.coil_version}"
@@ -75,8 +78,6 @@ object Deps {
 
     const val koin = "io.insert-koin:koin-gradle-plugin:${Versions.koin_version}"
     const val lifecycle_extensions = "android.arch.lifecycle:extensions:${Versions.lifecycle_ext}"
-
-
-
+    const val shimmerCompose = "com.valentinilk.shimmer:compose-shimmer:${Versions.shimmer_compose}"
 
 }

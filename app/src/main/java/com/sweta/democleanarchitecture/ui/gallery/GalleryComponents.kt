@@ -7,6 +7,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -38,15 +39,17 @@ import com.sweta.domain.models.GalleryImage
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun GalleryList(modifier: Modifier = Modifier, viewModel: GalleryViewModel, context: Context) {
-    ShowGalleryList(modifier, galleryList = viewModel.gallery, context)
+fun GalleryList(modifier: Modifier = Modifier, viewModel: GalleryViewModel, context: Context, onNavigationRequested: (itemId: Int) -> Unit
+) {
+    ShowGalleryList(modifier, galleryList = viewModel.gallery, context, onNavigationRequested)
 }
 
 @Composable
 fun ShowGalleryList(
     modifier: Modifier,
     galleryList: Flow<PagingData<GalleryImage>>,
-    context: Context
+    context: Context,
+    onItemClicked: (itemId: Int) -> Unit
 ) {
 
     val galleryListItems: LazyPagingItems<GalleryImage> = galleryList.collectAsLazyPagingItems()
@@ -55,7 +58,7 @@ fun ShowGalleryList(
         items(galleryListItems) { item ->
             item?.let {
                 GalleryItem(galleryItemData = it, onClick = {
-                    Toast.makeText(context, item.id.toString(), Toast.LENGTH_SHORT).show()
+                    onItemClicked(it.id)
                 })
             }
         }
@@ -165,7 +168,8 @@ fun GalleryItem(galleryItemData: GalleryImage, onClick: () -> Unit) {
                             contentDescription = null,
                             modifier = Modifier
                                 .height(100.dp)
-                                .clip(shape = RoundedCornerShape(12.dp)),
+                                .clip(shape = RoundedCornerShape(12.dp))
+                                .clickable { onClick() },
                             contentScale = ContentScale.Crop
                         )
                     } else {
@@ -178,7 +182,8 @@ fun GalleryItem(galleryItemData: GalleryImage, onClick: () -> Unit) {
                             contentDescription = null,
                             modifier = Modifier
                                 .height(100.dp)
-                                .clip(shape = RoundedCornerShape(12.dp)),
+                                .clip(shape = RoundedCornerShape(12.dp))
+                                .clickable { onClick() },
                             contentScale = ContentScale.Crop
                         )
                     }

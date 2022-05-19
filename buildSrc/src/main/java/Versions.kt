@@ -17,13 +17,15 @@ object Versions {
     const val androidXCore = "1.7.0"
     const val lifecycle = "2.4.1"
     const val activityCompose = "1.4.0"
-    const val koin_version = "3.1.5"
+    const val koin_version = "3.2"
     const val retrofit_adapter = "0.9.2"
     const val okhttp_logger = "4.7.2"
     const val okhttp_bom = "4.9.0"
     const val mockito_version = "2.27.0"
     const val androidx_core_test = "2.1.0"
     const val leak_canary = "2.7"
+    const val navigationCompose = "2.4.2"
+
 
     const val coroutines = "1.3.7"
     const val retrofit = "2.9.0"
@@ -37,4 +39,5 @@ object Versions {
     const val paging_compose_version = "1.0.0-alpha14"
     const val coil_version = "0.12.0"
     const val version_code = 1
+    const val shimmer_compose = "1.0.2"
 }
