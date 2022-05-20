@@ -1,6 +1,8 @@
 # DemoApp
 An Android Jetpack Compose app with Clean Architecture
 
+- Gallery List (MVVM style)
+- Gallery Detail (MVI style)
 
 ## 🏗️️ Built with
 

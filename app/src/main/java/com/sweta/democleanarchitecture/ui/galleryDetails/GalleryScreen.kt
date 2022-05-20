@@ -46,6 +46,7 @@ fun GalleryDetailView(
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     // Listen for side effects from the VM
     LaunchedEffect(effectFlow) {
+
         effectFlow?.onEach { effect ->
             when (effect) {
                 is GalleryDetailContract.Effect.ShowToast -> {
