@@ -69,6 +69,8 @@ object Deps {
     //Paging 3.0
     const val paging_compose = "androidx.paging:paging-compose:${Versions.paging_compose_version}"
 
+    const val accompanist_system_ui = "com.google.accompanist:accompanist-systemuicontroller:${Versions.system_ui_version}"
+
 
     const val viewmodel_ktx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
@@ -79,5 +81,11 @@ object Deps {
     const val koin = "io.insert-koin:koin-gradle-plugin:${Versions.koin_version}"
     const val lifecycle_extensions = "android.arch.lifecycle:extensions:${Versions.lifecycle_ext}"
     const val shimmerCompose = "com.valentinilk.shimmer:compose-shimmer:${Versions.shimmer_compose}"
+
+
+    const val maps_compose =  "com.google.maps.android:maps-compose:2.4.0"
+    const val maps_gms_play_services = "com.google.android.gms:play-services-maps:18.1.0"
+    const val maps_gms_location = "com.google.android.gms:play-services-location:20.0.0"
+
 
 }

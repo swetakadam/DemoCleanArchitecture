@@ -14,7 +14,7 @@ interface GalleryApi {
     @GET("v2/list")
     suspend fun getGalleryWithPagination(
         @Query("page") page: Int,
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int,
     ): Response<List<ApiGalleryItem>>
 
     @GET("https://picsum.photos/200/300?grayscale")

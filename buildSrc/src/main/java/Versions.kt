@@ -1,7 +1,7 @@
 object Versions {
 
     const val gradlePlugin = "4.2.1"
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.7.0"
     const val timber = "4.7.1"
     const val appCompat = "1.3.0"
     const val material = "1.3.0"
@@ -10,7 +10,7 @@ object Versions {
     const val junit_ext = "1.1.1"
     const val androidJunit = "1.1.3"
     const val androidExpresso = "3.4.0"
-    const val composeVersion = "1.2.0-alpha05"
+    const val composeVersion = "1.3.0-alpha01"
     const val androidApplicationPlugin = "7.1.0"
     const val androidLibraryPlugin = "7.1.0"
     const val kotlinAndroidPlugin = "1.5.21"
@@ -24,7 +24,7 @@ object Versions {
     const val mockito_version = "2.27.0"
     const val androidx_core_test = "2.1.0"
     const val leak_canary = "2.7"
-    const val navigationCompose = "2.4.2"
+    const val navigationCompose = "2.5.0"
 
 
     const val coroutines = "1.3.7"
@@ -40,4 +40,5 @@ object Versions {
     const val coil_version = "0.12.0"
     const val version_code = 1
     const val shimmer_compose = "1.0.2"
+    const val system_ui_version = "0.27.0"
 }

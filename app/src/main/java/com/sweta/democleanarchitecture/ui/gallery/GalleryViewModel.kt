@@ -1,5 +1,6 @@
 package com.sweta.democleanarchitecture.ui.gallery
 
+import android.util.Range
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData

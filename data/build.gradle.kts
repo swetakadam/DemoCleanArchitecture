@@ -42,7 +42,7 @@ dependencies {
     api(project(":domain"))
     implementation(Deps.androidXCore)
     implementation(Deps.kotlin)
-    implementation ("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
+    implementation ("org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}")
 
 
 

@@ -1,7 +1,7 @@
 package com.sweta.democleanarchitecture.ui.base
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
+//import androidx.compose.runtime.MutableState
+//import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,8 +19,8 @@ abstract class BaseViewModel<Event : UiEvent, State : UiState, Effect : UiEffect
     private val currentState: State
         get() = uiState.value
 
-    private val _uiState : MutableState<State> = mutableStateOf(initialState)
-    val uiState:androidx.compose.runtime.State<State> = _uiState
+    private val _uiState : MutableStateFlow<State> = MutableStateFlow(initialState)
+    val uiState = _uiState.asStateFlow()
 
     private val _event : MutableSharedFlow<Event> = MutableSharedFlow()
     val event = _event.asSharedFlow()

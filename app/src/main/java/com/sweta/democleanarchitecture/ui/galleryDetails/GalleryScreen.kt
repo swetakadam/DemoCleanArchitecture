@@ -3,21 +3,16 @@ package com.sweta.democleanarchitecture.ui.galleryDetails
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.semantics.Role.Companion.Button
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -25,19 +20,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.coil.rememberCoilPainter
 import com.sweta.democleanarchitecture.ui.animations.Heart
-import com.sweta.democleanarchitecture.ui.theme.DemoCleanArchitectureTheme
 import com.sweta.democleanarchitecture.ui.theme.ShimmerColorShades
-import com.sweta.domain.models.GalleryImage
-import com.valentinilk.shimmer.shimmer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
-import javax.microedition.khronos.opengles.GL
 
 
 @Composable
 fun GalleryDetailView(
-    state: GalleryDetailContract.State,
+    state: State<GalleryDetailContract.State>,
     effectFlow: Flow<GalleryDetailContract.Effect>?,
     onEventSent: (event: GalleryDetailContract.Event) -> Unit,
     id: Int
@@ -61,7 +52,7 @@ fun GalleryDetailView(
     }
 
 
-    when (state.galleryDetailState) {
+    when (state.value.galleryDetailState) {
         is GalleryDetailContract.GalleryDetailState.Loading -> {
             ShimmerAnimation()
         }
@@ -75,14 +66,14 @@ fun GalleryDetailView(
 
                    Column(modifier = Modifier.align(Alignment.TopCenter).padding(16.dp)) {
                         val image = rememberCoilPainter(
-                            request = state.galleryDetailState.image.downloadUrl,
+                            request = (state.value.galleryDetailState as GalleryDetailContract.GalleryDetailState.Success).image.downloadUrl,
                             fadeIn = false
                         )
 
 
                        Text(
                            modifier = Modifier.fillMaxWidth().height(40.dp),
-                           text = "Photo By: ${state.galleryDetailState.image.author}",
+                           text = "Photo By: ${(state.value.galleryDetailState as GalleryDetailContract.GalleryDetailState.Success).image.author}",
                            fontWeight = FontWeight.Bold,
                            style = TextStyle(fontSize = 24.sp, textAlign = TextAlign.Center),
                            color = Color.Black

@@ -35,7 +35,7 @@ android {
 dependencies {
 
     implementation(Deps.kotlin)
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}")
 
 
 

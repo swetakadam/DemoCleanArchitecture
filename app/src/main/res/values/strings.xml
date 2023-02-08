@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DemoCleanArchitecture</string>
+    <string name="permission_location_rationale">This app requires the location permission to be
+    granted.</string>
 </resources>

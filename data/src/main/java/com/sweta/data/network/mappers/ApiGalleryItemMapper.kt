@@ -14,11 +14,13 @@ class ApiGalleryItemMapper : ApiMapper<ApiGalleryItem?,GalleryImage> {
             author = apiEntity?.author ?: "",
             width = apiEntity?.width ?: -1,
             height = apiEntity?.height ?: -1,
-            url = apiEntity?.url ?: "",
+            url = apiEntity?.url  ?: "",
             downloadUrl = apiEntity?.downloadUrl ?: "",
             grayscaleUrl =  apiEntity?.downloadUrl?.plus("?grayscale") ?: "",
             //blur values acceptable 1..10
-            blurUrl = apiEntity?.downloadUrl?.plus("?blur=${Random.nextInt(1, 11)}") ?: ""
+            blurUrl = apiEntity?.downloadUrl?.plus("?blur=${Random.nextInt(1, 11)}") ?: "",
+            blur = apiEntity?.blur,
+            isGrayScale = apiEntity?.isGrayscale ?: false
         )
 
     }

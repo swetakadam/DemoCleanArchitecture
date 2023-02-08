@@ -1,5 +1,6 @@
 package com.sweta.democleanarchitecture.ui.galleryDetails
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.sweta.democleanarchitecture.ui.base.BaseViewModel
 import com.sweta.domain.usecases.FetchGalleryItemDetailsUseCase
@@ -52,7 +53,7 @@ class GalleryDetailViewModel(private val galleryDetailUseCase: FetchGalleryItemD
 
 
             setState { copy(galleryDetailState = GalleryDetailContract.GalleryDetailState.Loading) }
-            delay(2000)
+           // delay(2000) // this was to simulate network call
             when (val result = withContext(Dispatchers.IO) {
                 galleryDetailUseCase(id) // galleryDetailUseCase.invoke(id)
             }) {
@@ -78,6 +79,9 @@ class GalleryDetailViewModel(private val galleryDetailUseCase: FetchGalleryItemD
                 is ResultWrapper.AuthError -> {
                     val errorMessage = "Auth Error"
                     setEffect { GalleryDetailContract.Effect.ShowToast(errorMessage) }
+                }
+                else -> {
+                   Log.e("Gallery Details","Fetch error else ")
                 }
             }
 

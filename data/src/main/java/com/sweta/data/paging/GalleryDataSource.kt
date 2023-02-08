@@ -36,7 +36,13 @@ class GalleryDataSource constructor(
                     LoadResult.Error(ApiException("Gallery Fetch Error"))
                 } else {
                     LoadResult.Page(
-                        data = this.map { apiGalleryItemMapper.mapToDomain(it) },
+                        data = this.map {
+                            it.blur = 7
+                            it.isGrayscale = true
+                            apiGalleryItemMapper.mapToDomain(it)
+                                        },
+
+
                         prevKey = prevKey,
                         nextKey = nextKey
                     )

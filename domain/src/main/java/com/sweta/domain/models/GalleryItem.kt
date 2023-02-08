@@ -8,5 +8,7 @@ data class GalleryImage(
     val url: String,
     val blurUrl: String,
     val grayscaleUrl : String,
-    val downloadUrl : String
+    val downloadUrl : String,
+    var blur : Int? = null,
+    var isGrayScale : Boolean = false
 )
